@@ -36,7 +36,7 @@ Comprehensive academic paper writing guidance with expert workflows, templates, 
 - IEEE Editorial Style
 - Academic writing best practices from Ohio University, Duke, MIT, USC, UCSD
 
-📖 [Full Documentation](./skills/paper-writing/README.md) | 💾 [Download v1.0.0](https://github.com/vishalsachdev/claude-code-skills/releases/download/v1.0.0/paper-writing-v1.0.0.skill)
+📖 [Full Documentation](./skills/paper-writing/SKILL.md) | 💾 [Download v1.0.0](https://github.com/vishalsachdev/claude-code-skills/releases/download/v1.0.0/paper-writing-v1.0.0.skill)
 
 ---
 
@@ -90,7 +90,6 @@ claude-code-skills/
 ├── skills/                            # Source skills
 │   └── paper-writing/                 # Paper writing skill
 │       ├── SKILL.md                   # Main skill file
-│       ├── README.md                  # Skill documentation
 │       ├── LICENSE.txt                # Skill license
 │       ├── references/                # Reference materials
 │       │   ├── ELITE-PAPERS.md
