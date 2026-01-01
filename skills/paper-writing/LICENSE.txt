@@ -31,7 +31,9 @@ This skill incorporates insights and guidelines from multiple sources:
    - IEEE Editorial Style Manual
    - Various academic institutions (Ohio University, Duke, MIT, USC, etc.)
 
-2. "Rules for Writing Elite Information Systems Papers" by Jason Bennett Thatcher
+2. Thatcher, Jason Bennett (2024). "Rules for Writing Elite Information Systems Papers"
+   - Available at SSRN: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5993034
+   - DOI: http://dx.doi.org/10.2139/ssrn.5993034
    - Used with appreciation for advancing academic writing pedagogy
    - Not an endorsement by Professor Thatcher
 

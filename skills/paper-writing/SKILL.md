@@ -324,3 +324,12 @@ Recommendations:
 - Don't aim for perfection in first draft
 
 Remember: All good papers go through multiple revisions. Writing is rewriting.
+
+## Sources and Credits
+
+This skill is based on authoritative academic writing resources:
+
+- **Thatcher, Jason Bennett** (2024). "Rules for Writing Elite Information Systems Papers." Available at SSRN: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5993034 or http://dx.doi.org/10.2139/ssrn.5993034
+- **APA Publication Manual** (7th Edition)
+- **IEEE Editorial Style Manual**
+- Academic writing best practices from Ohio University, Duke University, MIT, USC, and UCSD

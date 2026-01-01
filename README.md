@@ -31,9 +31,9 @@ Comprehensive academic paper writing guidance with expert workflows, templates, 
 - **3,478 lines** of expert guidance
 
 **Based on:**
+- **Thatcher, Jason Bennett** (2024). "Rules for Writing Elite Information Systems Papers." SSRN: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5993034
 - APA Style (7th Edition)
 - IEEE Editorial Style
-- Jason Bennett Thatcher's "Rules for Writing Elite Information Systems Papers"
 - Academic writing best practices from Ohio University, Duke, MIT, USC, UCSD
 
 📖 [Full Documentation](./skills/paper-writing/README.md) | 💾 [Download v1.0.0](https://github.com/vishalsachdev/claude-code-skills/releases/download/v1.0.0/paper-writing-v1.0.0.skill)

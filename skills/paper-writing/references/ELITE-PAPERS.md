@@ -1,6 +1,8 @@
 # Writing Elite Information Systems Papers
 ## Based on Thatcher's 17 Rules for Elite Journal Papers
 
+**Source**: Thatcher, Jason Bennett, "Rules for Writing Elite Information Systems Papers" (December 30, 2024). Available at SSRN: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5993034 or http://dx.doi.org/10.2139/ssrn.5993034
+
 This guide distills best practices for writing theoretically grounded, construct-centered, mid-range empirical papers that make clear contributions to elite Information Systems journals (MISQ, ISR, JMIS, JAIS).
 
 ---
