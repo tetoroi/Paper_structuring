@@ -217,16 +217,28 @@ Work section-by-section, not necessarily in order. Many authors write in this se
 - Use close reading and analysis
 - Contextualize within historical/cultural frameworks
 
-## Collaboration Workflow
+## Conversation-First Approach
 
-When helping users write papers:
+When helping users write papers, prioritize natural conversation over rapid-fire questions:
 
-1. **Understand the context**: Ask about the research, target venue, and current stage
-2. **Assess existing content**: Read any drafts to understand progress
-3. **Provide targeted help**: Focus on the specific section or issue
-4. **Maintain author voice**: Edit to improve, not to rewrite in a different style
-5. **Explain recommendations**: Help users understand why changes improve the paper
-6. **Load references as needed**: Use reference documents for detailed guidance
+1. **Start simple**: Ask ONE opening question to understand their situation
+   - "What's your paper about?" (topic/working title)
+   - OR "What stage are you at?" (if they're already focused)
+
+2. **Listen and follow up**: Based on their answer, ask the next most relevant question
+   - If they're starting: Ask about target venue or research gap
+   - If they're revising: Ask which section needs work
+   - If they're stuck: Ask what specific challenge they're facing
+
+3. **Build context progressively**: Let information emerge naturally through dialogue
+
+4. **Provide targeted help**: Focus on their immediate need, not all possible topics
+
+5. **Maintain author voice**: Edit to improve, not to rewrite in a different style
+
+6. **Explain recommendations**: Help them understand why changes strengthen their paper
+
+7. **Load references as needed**: Use reference documents for deeper guidance only when relevant
 
 ## Using Reference Materials
 
@@ -265,43 +277,70 @@ Before considering a paper complete, verify:
 
 ## Examples
 
-**Example 1: Starting a new paper**
-```
-User: I need to write a conference paper about my research on neural network pruning.
+**Example 1: Progressive discovery—starting fresh**
 
-Response:
-1. First, let's clarify the target conference and their requirements
-2. Define your research question: What specific aspect of pruning?
-3. Identify your contribution: What's new compared to existing pruning methods?
-4. Create an outline with these sections:
-   - Abstract
-   - Introduction (problem, gap, contribution)
-   - Related Work (existing pruning techniques)
-   - Proposed Method (your approach)
-   - Experiments (setup, datasets, metrics)
-   - Results
-   - Discussion
-   - Conclusion
-5. Start with Experiments section (clearest) then work backwards
+```
+User: Help me write a research paper.
+
+Claude: What's your paper about? (topic, working title, or research question)
+
+User: It's about federated learning for edge devices.
+
+Claude: Got it—that's a focused topic. Are you at the stage of having completed
+research and needing to write it up, or are you still planning the work?
+
+User: I've done the research and have preliminary results. I just don't know
+where to start.
+
+Claude: Perfect—let me help you structure this. What's your target venue?
+(e.g., a specific conference, journal, or is this a thesis chapter?)
 ```
 
-**Example 2: Improving an existing draft**
-```
-User: My introduction feels weak. Here's what I have...
+Notice: One question asked, then the next, building naturally from their answers.
 
-Response:
-Let me analyze your introduction against the standard structure:
-- Hook: ✅ Present but could be stronger
-- Context: ❌ Missing broader problem framing
-- Gap: ✅ Good identification of limitation
-- Contribution: ⚠️ Present but buried in paragraph 3
+---
 
-Recommendations:
-1. Move contribution statement to end of paragraph 1
-2. Add context paragraph explaining why this problem matters
-3. Strengthen hook with a concrete example or statistic
-4. Add brief roadmap of paper organization
+**Example 2: Targeted revision (existing draft)**
+
 ```
+User: My introduction feels weak and I'm not sure why.
+
+Claude: I'd like to take a look. Can you share what you have, or tell me
+what the main challenge is? (e.g., doesn't grab attention, doesn't explain
+why this work matters, etc.)
+
+User: I think I'm not making the research gap clear enough. Here's what I wrote...
+
+Claude: [Reads their draft]
+
+Looking at your introduction, I see you've identified the problem nicely,
+but you're right—the gap (what's missing in current solutions) isn't
+explicit. Here's what I'd suggest...
+```
+
+Notice: Start with curiosity about their specific challenge, then provide
+targeted feedback on the actual content.
+
+---
+
+**Example 3: Stuck in the middle**
+
+```
+User: I have my methods section written, but I'm stuck on results.
+
+Claude: What's tripping you up about the results section specifically?
+(e.g., how to organize findings, whether to include raw data, interpretation
+vs. presentation, etc.)
+
+User: I have a lot of data. I don't know what to include and how to present it
+so it's not overwhelming.
+
+Claude: That's a common challenge. Let me help you think through data selection
+and visualization...
+```
+
+Notice: Rather than lecturing about results sections in general, we drill down
+into their specific problem first.
 
 ## Tips for Success
 
