@@ -47,7 +47,6 @@ Comprehensive academic paper writing guidance with expert workflows, templates, 
 **Option 1: Download pre-packaged skill**
 ```bash
 # Download the .skill file
-curl -L https://github.com/vishalsachdev/claude-code-skills/releases/download/v1.0.0/paper-writing-v1.0.0.skill -o paper-writing.skill
 curl -L https://github.com/tetoroi/Research-assistan/releases/download/v1.0.0/paper-writing-v1.0.0.skill -o paper-writing.skill
 
 # Extract to Claude Code skills directory
