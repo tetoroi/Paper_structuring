@@ -1,4 +1,4 @@
-# Claude Code Skills by Vishal Sachdev
+# Research Assistant - Claude Code Skills
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Compatible-blue?style=flat&logo=anthropic)](https://agentskills.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -36,7 +36,7 @@ Comprehensive academic paper writing guidance with expert workflows, templates, 
 - IEEE Editorial Style
 - Academic writing best practices from Ohio University, Duke, MIT, USC, UCSD
 
-📖 [Full Documentation](./skills/paper-writing/SKILL.md) | 💾 [Download v1.0.0](https://github.com/vishalsachdev/claude-code-skills/releases/download/v1.0.0/paper-writing-v1.0.0.skill)
+📖 [Full Documentation](./skills/paper-writing/SKILL.md) | 💾 [Download v1.0.0](https://github.com/tetoroi/Research-assistan/releases/download/v1.0.0/paper-writing-v1.0.0.skill)
 
 ---
 
@@ -48,6 +48,7 @@ Comprehensive academic paper writing guidance with expert workflows, templates, 
 ```bash
 # Download the .skill file
 curl -L https://github.com/vishalsachdev/claude-code-skills/releases/download/v1.0.0/paper-writing-v1.0.0.skill -o paper-writing.skill
+curl -L https://github.com/tetoroi/Research-assistan/releases/download/v1.0.0/paper-writing-v1.0.0.skill -o paper-writing.skill
 
 # Extract to Claude Code skills directory
 unzip paper-writing.skill -d ~/.claude/skills/paper-writing
@@ -59,7 +60,7 @@ ls -la ~/.claude/skills/paper-writing/
 **Option 2: Clone and copy**
 ```bash
 # Clone this repository
-git clone https://github.com/vishalsachdev/claude-code-skills.git
+git clone https://github.com/tetoroi/Research-assistan.git
 
 # Copy specific skill
 cp -r claude-code-skills/skills/paper-writing ~/.claude/skills/
@@ -83,7 +84,7 @@ You can also manually invoke skills by referencing them directly in your convers
 ## 📁 Repository Structure
 
 ```
-claude-code-skills/
+Research-assistan/
 ├── README.md                          # This file
 ├── CONTRIBUTING.md                    # Contribution guidelines
 ├── LICENSE                            # Repository license
@@ -154,8 +155,8 @@ Individual skills may have their own licenses - check each skill's LICENSE.txt f
 
 ## 📬 Contact
 
-**Vishal Sachdev**
-- GitHub: [@vishalsachdev](https://github.com/vishalsachdev)
+**Tetoroi**
+- GitHub: [@tetoroi](https://github.com/tetoroi)
 
 ---
 

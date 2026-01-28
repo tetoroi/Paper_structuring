@@ -96,9 +96,9 @@ Each skill must include a README.md with:
 ### 1. Fork and Clone
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/claude-code-skills.git
-cd claude-code-skills
-git remote add upstream https://github.com/vishalsachdev/claude-code-skills.git
+git clone https://github.com/YOUR-USERNAME/Research-assistan.git
+cd Research-assistan
+git remote add upstream https://github.com/tetoroi/Research-assistan.git
 ```
 
 ### 2. Create a Branch
@@ -244,7 +244,7 @@ Good bug reports include:
 
 ## 💬 Questions?
 
-- Open an [issue](https://github.com/vishalsachdev/claude-code-skills/issues) for questions
+- Open an [issue](https://github.com/tetoroi/Research-assistan/issues) for questions
 - Review existing issues and discussions
 - Check the [Agent Skills docs](https://agentskills.io)
 
