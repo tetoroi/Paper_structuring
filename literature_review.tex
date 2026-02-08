@@ -1,0 +1,429 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% Title and author information
+\title{Digital Product Passports and Digital Twins: A Literature Review on Implementation Approaches and Integration Strategies}
+
+\author{Author Name\\
+Affiliation\\
+Email: author@example.com}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Digital Product Passports (DPP) have emerged as a critical component of the European Union's circular economy strategy, mandated under the Ecodesign for Sustainable Products Regulation (ESPR). Recent research demonstrates significant convergence between DPP implementation and Digital Twin (DT) technologies, with blockchain and decentralized storage solutions playing increasingly important roles. This literature review synthesizes findings from recent publications (2024-2025) examining DPP-DT integration, analyzing architectural approaches, technology stacks, and implementation challenges. We identify three primary architectural patterns: centralized federated systems (Gaia-X-based), standardized approaches (Asset Administration Shell-based), and decentralized blockchain-enabled frameworks. Our analysis reveals common challenges in interoperability, scalability, and data governance, while highlighting the potential for these technologies to enable comprehensive product lifecycle management and support circular economy objectives.
+\end{abstract}
+
+\section{Introduction}
+
+The European Union's Ecodesign for Sustainable Products Regulation (ESPR) represents a paradigm shift in how product information is managed throughout the lifecycle \cite{monteiro2024digital, dadamo2025integrated}. At the core of this regulation is the Digital Product Passport (DPP)---a digital record containing comprehensive information about a product's composition, origin, repair options, and end-of-life handling instructions. The DPP aims to enable circular economy principles by providing stakeholders with transparent, accessible information necessary for informed decision-making regarding reuse, repair, remanufacturing, and recycling.
+
+Digital Twins (DT)---virtual representations of physical products that evolve throughout the product lifecycle---have emerged as a natural technological foundation for DPP implementation \cite{gleich2024asset, kannappan2025enhancing}. The convergence of DPP requirements and DT capabilities has sparked significant research interest, particularly regarding integration with blockchain technology, decentralized storage systems, and Industry 4.0 standardization frameworks.
+
+This literature review examines recent research (2024-2025) on DPP-DT integration, with three primary objectives:
+\begin{enumerate}
+    \item Identify and analyze architectural patterns for DPP implementation using Digital Twin technologies
+    \item Compare technology stacks, including blockchain platforms, storage solutions, and standardization frameworks
+    \item Synthesize implementation challenges and research gaps to inform future development
+\end{enumerate}
+
+The review is organized thematically, examining technological foundations (Section \ref{sec:foundations}), implementation architectures (Section \ref{sec:architectures}), application domains (Section \ref{sec:applications}), and performance considerations (Section \ref{sec:performance}). We conclude with a synthesis of common challenges and identification of research gaps (Section \ref{sec:gaps}).
+
+\section{Technological Foundations}
+\label{sec:foundations}
+
+\subsection{Digital Product Passport Concept}
+
+The Digital Product Passport concept emerged from the EU's circular economy action plan, designed to address information asymmetries in product lifecycle management \cite{lopes2024digital}. Lopes and Barata \cite{lopes2024digital} conducted a systematic literature review of 40 DPP-related publications from 2021-2024, identifying core functionalities that DPP systems must provide:
+
+\begin{itemize}
+    \item \textbf{Product identification and traceability}: Unique identifiers enabling tracking throughout the supply chain
+    \item \textbf{Material composition}: Detailed information about materials, chemicals, and hazardous substances
+    \item \textbf{Environmental impact data}: Carbon footprint, water usage, and other sustainability metrics
+    \item \textbf{Maintenance and repair information}: Technical documentation, spare parts availability, repair instructions
+    \item \textbf{End-of-life instructions}: Disassembly procedures, recycling guidelines, material recovery potential
+\end{itemize}
+
+The regulatory framework requires DPP data to be accessible to multiple stakeholders---manufacturers, consumers, repair services, recyclers, and regulatory authorities---each with different information needs and access rights \cite{dadamo2025integrated}.
+
+\subsection{Digital Twin Integration}
+
+Digital Twins provide dynamic, evolving representations of physical products, continuously updated throughout the product lifecycle \cite{gleich2024asset}. Gleich et al. \cite{gleich2024asset} distinguish between two DT types relevant to DPP implementation:
+
+\begin{enumerate}
+    \item \textbf{Component Digital Twin (CDT)}: Represents individual components or materials, maintaining component-specific data including origin, specifications, and lifecycle events
+    \item \textbf{Product Digital Twin (PDT)}: Represents the assembled product, aggregating data from component twins and adding product-level information such as usage patterns, maintenance history, and performance metrics
+\end{enumerate}
+
+This hierarchical structure enables granular tracking while maintaining system scalability---a critical consideration for products with complex supply chains and numerous components.
+
+\subsection{Blockchain and Decentralized Technologies}
+
+Several implementations leverage blockchain technology to ensure data immutability, transparency, and multi-stakeholder access control \cite{dadamo2025integrated, kannappan2025enhancing}. D'Adamo et al. \cite{dadamo2025integrated} implemented an Ethereum-based DPP for the textile industry, arguing that blockchain provides:
+
+\begin{itemize}
+    \item \textbf{Immutability}: Once recorded, product data cannot be retroactively altered, ensuring trust in historical records
+    \item \textbf{Transparency}: All authorized stakeholders can verify product information independently
+    \item \textbf{Smart contracts}: Automated enforcement of business rules and access policies
+\end{itemize}
+
+Kannappan et al. \cite{kannappan2025enhancing} extended this approach by implementing a Layer 2 solution (Arbitrum) combined with IPFS (InterPlanetary File System) for decentralized storage, addressing scalability and cost concerns associated with Layer 1 blockchain implementations.
+
+\subsection{Asset Administration Shell (AAS) Standard}
+
+The Asset Administration Shell, developed as part of the Industry 4.0 initiative, provides a standardized information model for representing assets in digital form \cite{gleich2024asset}. Gleich et al. \cite{gleich2024asset} demonstrate how AAS can serve as a DPP implementation framework, offering:
+
+\begin{itemize}
+    \item Standardized data models (submodels) for different information aspects
+    \item Interoperability between heterogeneous systems through common interfaces
+    \item Compatibility with existing industrial automation infrastructure
+\end{itemize}
+
+The AAS approach contrasts with blockchain-based implementations by emphasizing standardization and industrial ecosystem integration over decentralization and immutability.
+
+\section{Implementation Architectures}
+\label{sec:architectures}
+
+Our analysis identifies three distinct architectural patterns for DPP-DT integration, each with different trade-offs regarding centralization, standardization, and technological complexity.
+
+\subsection{Federated Architecture with Gaia-X}
+
+Monteiro et al. \cite{monteiro2024digital} propose a federated architecture leveraging Gaia-X, a European data infrastructure initiative designed to enable secure, trustworthy data sharing. Their implementation for the GEOfood project (agricultural products) consists of three layers:
+
+\begin{enumerate}
+    \item \textbf{Data Layer}: Product data stored by individual stakeholders in their own systems
+    \item \textbf{Digital Twin Layer}: Virtual representations synchronized with physical products throughout the lifecycle
+    \item \textbf{Gaia-X Layer}: Federation services enabling secure data exchange without centralized storage
+\end{enumerate}
+
+This architecture maintains data sovereignty---each stakeholder retains control over their data---while enabling authorized access across organizational boundaries. The approach prioritizes privacy and compliance with European data regulations (GDPR) over full transparency.
+
+\textbf{Key advantages}:
+\begin{itemize}
+    \item Data sovereignty preserved
+    \item Regulatory compliance (GDPR)
+    \item No single point of failure
+\end{itemize}
+
+\textbf{Key challenges}:
+\begin{itemize}
+    \item Complex federation protocols
+    \item Dependency on Gaia-X ecosystem adoption
+    \item Potential performance overhead in cross-organizational queries
+\end{itemize}
+
+\subsection{Standardized AAS-Based Architecture}
+
+Gleich et al. \cite{gleich2024asset} implement DPP using the Asset Administration Shell standard, demonstrating integration with Siemens' industrial automation platforms. Their architecture employs a hierarchical twin structure:
+
+\begin{itemize}
+    \item \textbf{Component Level}: Each component has an AAS instance containing component-specific submodels (technical data, digital nameplate, carbon footprint)
+    \item \textbf{Product Level}: The assembled product has a separate AAS instance that references component AASs and adds product-level submodels (bill of materials, operating instructions, maintenance records)
+\end{itemize}
+
+Data is stored in centralized AAS repositories with access controlled through standardized AAS interfaces. The approach emphasizes compatibility with existing industrial systems and adherence to Industry 4.0 standards.
+
+\textbf{Key advantages}:
+\begin{itemize}
+    \item Industry-wide standardization
+    \item Integration with existing automation systems
+    \item Clear data models (standardized submodels)
+\end{itemize}
+
+\textbf{Key challenges}:
+\begin{itemize}
+    \item Centralized storage may raise trust concerns
+    \item Limited adoption outside industrial sectors
+    \item Scalability questions for consumer products
+\end{itemize}
+
+\subsection{Decentralized Blockchain Architecture}
+
+Kannappan et al. \cite{kannappan2025enhancing} propose a fully decentralized architecture combining Layer 2 blockchain (Arbitrum) with IPFS storage. Their implementation for battery lifecycle management operates as follows:
+
+\begin{enumerate}
+    \item \textbf{Data Collection}: IoT sensors on products continuously collect operational data
+    \item \textbf{IPFS Storage}: Large data files (documents, images, sensor logs) stored on IPFS, generating content-addressed hashes
+    \item \textbf{Blockchain Layer}: IPFS hashes and critical metadata stored on Arbitrum blockchain
+    \item \textbf{Smart Contracts}: Automate lifecycle transitions (manufacturing $\rightarrow$ use $\rightarrow$ maintenance $\rightarrow$ recycling)
+\end{enumerate}
+
+The Layer 2 solution addresses scalability and cost concerns associated with Ethereum mainnet while maintaining decentralization benefits.
+
+\textbf{Key advantages}:
+\begin{itemize}
+    \item Full decentralization (no trusted intermediary required)
+    \item Data immutability and transparency
+    \item Programmable business logic (smart contracts)
+\end{itemize}
+
+\textbf{Key challenges}:
+\begin{itemize}
+    \item Technical complexity
+    \item Dependency on blockchain infrastructure
+    \item Energy consumption concerns (though mitigated by Layer 2)
+\end{itemize}
+
+\subsection{Comparative Analysis}
+
+Table \ref{tab:architecture_comparison} summarizes the key differences between these architectural approaches.
+
+\begin{table}[h]
+\centering
+\caption{Comparison of DPP-DT Architectural Approaches}
+\label{tab:architecture_comparison}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Characteristic} & \textbf{Gaia-X Federated} & \textbf{AAS Standardized} & \textbf{Blockchain Decentralized} \\ \midrule
+Data Storage & Federated & Centralized & Decentralized (IPFS) \\
+Standardization & Custom/Gaia-X & AAS Standard & Custom \\
+Immutability & No & No & Yes \\
+Trust Model & Federation Trust & Centralized Trust & Cryptographic Trust \\
+Scalability & Medium & High & Medium-High (Layer 2) \\
+Industry Adoption & Emerging & Established & Low \\
+Implementation Complexity & High & Medium & High \\
+Data Sovereignty & High & Low & Medium \\ \bottomrule
+\end{tabular}
+\end{table}
+
+The choice of architecture depends on specific requirements: Gaia-X suits scenarios prioritizing data sovereignty and regulatory compliance; AAS fits industrial applications requiring standards compliance; blockchain approaches serve use cases demanding transparency and immutability without trusted intermediaries.
+
+\section{Application Domains and Case Studies}
+\label{sec:applications}
+
+\subsection{Agricultural Products: GEOfood}
+
+Monteiro et al. \cite{monteiro2024digital} implemented a DPP system for agricultural products in the GEOfood project, focusing on food traceability and sustainability information. The system tracks products from farm to consumer, recording:
+
+\begin{itemize}
+    \item Origin information (farm location, agricultural practices)
+    \item Processing steps and facilities
+    \item Transportation and storage conditions
+    \item Environmental impact metrics (water usage, carbon footprint)
+    \item Certification information (organic, fair trade, etc.)
+\end{itemize}
+
+The implementation demonstrated feasibility of DPP for perishable goods with complex, multi-actor supply chains. However, challenges emerged in real-time data synchronization and handling the high volume of short-lived products.
+
+\subsection{Textile Industry}
+
+D'Adamo et al. \cite{dadamo2025integrated} developed a DPP for the textile industry, addressing the sector's significant environmental challenges. Their implementation introduces a novel data prioritization framework using AHP (Analytic Hierarchy Process) and TOPSIS methodologies to determine which information should be mandatory, recommended, or optional in the DPP.
+
+The prioritization analysis, involving 24 experts, identified these top-priority data categories:
+\begin{enumerate}
+    \item Fiber composition and material origin
+    \item Chemical substances and hazardous materials
+    \item Carbon footprint and environmental impact
+    \item Recyclability and end-of-life instructions
+    \item Social compliance (labor conditions)
+\end{enumerate}
+
+This work addresses a critical practical question: given the vast amount of potential product information, what data should DPP systems prioritize? The AHP-TOPSIS approach provides a systematic methodology applicable beyond textiles.
+
+\subsection{Battery Lifecycle Management}
+
+Kannappan et al. \cite{kannappan2025enhancing} focus on battery DPPs, motivated by upcoming EU Battery Regulation requirements. Their implementation tracks:
+
+\begin{itemize}
+    \item Manufacturing data (cell chemistry, capacity, manufacturer)
+    \item State of Health (SoH) metrics throughout use phase
+    \item Charging cycles and usage patterns
+    \item Second-life applications (e.g., stationary storage after automotive use)
+    \item Recycling information and material recovery
+\end{itemize}
+
+The battery domain presents unique challenges: extremely long lifespans (potentially decades), multiple use phases (first life in vehicles, second life in stationary storage), and critical safety considerations requiring immutable records.
+
+Performance evaluation showed promising results: transaction costs of \$0.15-\$0.45 per operation, latency of 2-5 seconds, and throughput of 500-1000 TPS (transactions per second) on the Arbitrum Layer 2 network.
+
+\section{Performance Considerations and Technical Evaluation}
+\label{sec:performance}
+
+\subsection{Scalability Analysis}
+
+Scalability emerges as a critical concern across all implementations. Kannappan et al. \cite{kannappan2025enhancing} provide quantitative performance metrics for their blockchain-based system:
+
+\begin{itemize}
+    \item \textbf{Transaction costs}: \$0.15-\$0.45 per DPP operation on Arbitrum
+    \item \textbf{Latency}: 2-5 seconds for transaction confirmation
+    \item \textbf{Throughput}: 500-1000 TPS
+    \item \textbf{Storage costs}: Negligible due to IPFS (only hashes stored on-chain)
+\end{itemize}
+
+These metrics represent significant improvements over Ethereum mainnet (where costs can reach \$10-\$50 per transaction and throughput is limited to 15-30 TPS), demonstrating that Layer 2 solutions can achieve practical performance for DPP applications.
+
+Gleich et al. \cite{gleich2024asset} do not provide quantitative performance metrics, but note that AAS systems have been deployed at industrial scale in manufacturing environments, suggesting adequate performance for production use.
+
+Monteiro et al. \cite{monteiro2024digital} acknowledge scalability concerns in federated architectures, particularly regarding cross-organizational queries that may require coordination across multiple systems. However, they argue that distributing the computational and storage load across stakeholders inherently improves scalability compared to centralized approaches.
+
+\subsection{Interoperability Challenges}
+
+All reviewed papers identify interoperability as a significant challenge \cite{lopes2024digital}. Key interoperability dimensions include:
+
+\begin{enumerate}
+    \item \textbf{Technical interoperability}: Different systems must exchange data using compatible formats and protocols
+    \item \textbf{Semantic interoperability}: Data must have consistent meaning across systems (requires shared vocabularies/ontologies)
+    \item \textbf{Organizational interoperability}: Business processes and governance structures must align
+    \item \textbf{Legal interoperability}: Compliance with varying regulations across jurisdictions
+\end{enumerate}
+
+The AAS approach \cite{gleich2024asset} addresses technical and semantic interoperability through standardized information models. Blockchain approaches \cite{kannappan2025enhancing, dadamo2025integrated} provide technical interoperability through shared infrastructure but do not inherently solve semantic interoperability challenges.
+
+Lopes and Barata \cite{lopes2024digital} argue that current DPP implementations lack sufficient standardization, with different industries and even different companies within industries adopting incompatible approaches. They call for industry-wide standardization efforts coordinated at the European level.
+
+\section{Synthesis and Critical Analysis}
+\label{sec:synthesis}
+
+\subsection{Convergence Trends}
+
+Despite diverse implementation approaches, our analysis reveals significant convergence in DPP-DT research:
+
+\begin{enumerate}
+    \item \textbf{Technology stack convergence}: Most implementations combine multiple technologies---blockchain, decentralized storage, standardized data models, and IoT integration---rather than relying on a single solution.
+
+    \item \textbf{Lifecycle focus}: All implementations emphasize comprehensive lifecycle coverage from manufacturing through end-of-life, moving beyond static product information toward dynamic, evolving records.
+
+    \item \textbf{Multi-stakeholder requirements}: Implementations recognize that DPPs must serve diverse stakeholders with different information needs and access rights, requiring sophisticated access control mechanisms.
+
+    \item \textbf{Circular economy orientation}: All papers frame DPP as enabling circular economy principles, though specific emphasis varies (material recovery, reuse, repair, remanufacturing).
+\end{enumerate}
+
+\subsection{Trade-offs and Design Choices}
+
+The reviewed implementations reflect fundamental trade-offs in DPP system design:
+
+\textbf{Centralization vs. Decentralization}: Centralized systems (AAS) offer simpler implementation and better performance but raise trust concerns and create single points of failure. Decentralized systems (blockchain) provide trustless operation but increase complexity and cost.
+
+\textbf{Standardization vs. Flexibility}: Highly standardized approaches (AAS) facilitate interoperability and ecosystem integration but may not accommodate domain-specific requirements. Flexible, custom implementations can optimize for specific needs but hinder broader interoperability.
+
+\textbf{Immutability vs. Adaptability}: Blockchain implementations provide immutable records that build trust but cannot correct errors or adapt to changing regulations without complex mechanisms. Mutable systems offer flexibility but require trust in administrators.
+
+\textbf{Privacy vs. Transparency}: Full transparency supports circular economy goals and builds trust, but conflicts with business confidentiality and data protection regulations. Federated approaches (Gaia-X) prioritize privacy but reduce transparency.
+
+No single architecture resolves all these trade-offs optimally for all contexts. The appropriate choice depends on specific application requirements, regulatory context, and stakeholder preferences.
+
+\subsection{The Data Prioritization Challenge}
+
+D'Adamo et al.'s \cite{dadamo2025integrated} work on data prioritization highlights an often-overlooked challenge: DPP systems could potentially capture vast amounts of product information, but not all information is equally valuable to all stakeholders. Their AHP-TOPSIS methodology provides a systematic approach to identifying priority data categories, potentially applicable across domains.
+
+This challenge connects to broader questions about DPP data governance:
+\begin{itemize}
+    \item Who decides what information must be included in a DPP?
+    \item How should trade-offs between completeness and usability be resolved?
+    \item Should minimum data requirements vary by product category?
+    \item How can systems balance stakeholder-specific needs with standardization?
+\end{itemize}
+
+These questions require not only technical solutions but also policy decisions and multi-stakeholder coordination.
+
+\section{Research Gaps and Future Directions}
+\label{sec:gaps}
+
+\subsection{Identified Gaps}
+
+Our synthesis reveals several critical research gaps:
+
+\begin{enumerate}
+    \item \textbf{Real-world validation}: Most implementations are pilot projects or proofs-of-concept. Large-scale deployments with thousands or millions of products remain limited \cite{lopes2024digital}.
+
+    \item \textbf{Economic viability}: While technical feasibility is demonstrated, comprehensive cost-benefit analyses are lacking. Questions remain about who pays for DPP infrastructure and how value is distributed among stakeholders.
+
+    \item \textbf{Cross-industry interoperability}: Current implementations are domain-specific. Research is needed on enabling interoperability across industries---particularly important for complex products incorporating components from multiple sectors.
+
+    \item \textbf{Legacy system integration}: Implementations typically assume greenfield deployment. Integration with existing PLM, ERP, and other enterprise systems receives insufficient attention.
+
+    \item \textbf{Data quality assurance}: Mechanisms for ensuring data accuracy and completeness are underdeveloped. DPP value depends critically on data quality, but current implementations often assume trustworthy data input.
+
+    \item \textbf{Governance frameworks}: Technical architectures are well-explored, but organizational and legal governance frameworks are less developed. Questions about liability, data ownership, and dispute resolution need attention.
+
+    \item \textbf{User experience}: Research focuses on technical architecture; end-user interfaces and user experience receive little attention. For DPP to achieve policy objectives, consumers and other stakeholders must find systems accessible and useful.
+
+    \item \textbf{Privacy-preserving techniques}: While some implementations address privacy through federated approaches, advanced cryptographic techniques (zero-knowledge proofs, secure multi-party computation) remain unexplored in DPP contexts.
+\end{enumerate}
+
+\subsection{Methodological Considerations}
+
+Lopes and Barata's \cite{lopes2024digital} systematic review reveals methodological gaps in DPP research:
+
+\begin{itemize}
+    \item Overreliance on conceptual and design papers relative to empirical validation studies
+    \item Limited longitudinal studies tracking DPP implementations over time
+    \item Insufficient attention to implementation failures and lessons learned
+    \item Need for comparative studies systematically evaluating different approaches
+\end{itemize}
+
+Future research should emphasize empirical validation, comparative analysis, and longitudinal studies to build a more robust evidence base.
+
+\subsection{Future Research Directions}
+
+Promising directions for future research include:
+
+\begin{enumerate}
+    \item \textbf{Hybrid architectures}: Investigating combinations of centralized, federated, and decentralized approaches to leverage their complementary strengths
+
+    \item \textbf{AI/ML integration}: Exploring how machine learning can enhance DPP systems through automated data extraction, quality assurance, and predictive analytics (e.g., predicting product remaining useful life)
+
+    \item \textbf{DPP ecosystems}: Moving beyond single-product DPPs to interconnected ecosystems where product passports reference each other (e.g., automobile DPP referencing battery DPP)
+
+    \item \textbf{Regulatory compliance automation}: Developing systems that automatically generate compliance reports and regulatory submissions from DPP data
+
+    \item \textbf{Consumer engagement}: Investigating how to make DPP information accessible and actionable for consumers, potentially through mobile applications or integration with e-commerce platforms
+
+    \item \textbf{Second-life markets}: Exploring how DPPs can enable markets for second-life products, refurbished goods, and spare parts
+\end{enumerate}
+
+\section{Conclusion}
+
+Digital Product Passports implemented through Digital Twin technologies represent a promising approach to enabling circular economy transitions and improving product lifecycle management. Recent research (2024-2025) demonstrates technical feasibility through diverse architectural approaches---federated systems leveraging Gaia-X, standardized implementations using Asset Administration Shell, and decentralized blockchain-based frameworks.
+
+Each architectural pattern offers distinct advantages and faces specific challenges. Federated approaches prioritize data sovereignty and regulatory compliance; standardized approaches emphasize interoperability and industrial integration; blockchain-based approaches provide transparency and immutability without trusted intermediaries. The appropriate choice depends on application context, stakeholder requirements, and regulatory constraints.
+
+Despite technical progress, significant gaps remain. Real-world validation at scale is limited, economic viability questions persist, and cross-industry interoperability remains elusive. Governance frameworks, data quality assurance mechanisms, and user experience considerations require further attention. Future research should emphasize empirical validation, comparative analysis, and exploration of hybrid architectures that leverage complementary strengths of different approaches.
+
+As the EU's ESPR implementation timeline approaches, continued research and development are critical to ensuring DPP systems deliver their promised benefits for circular economy transitions. The convergence of DPP requirements with Digital Twin capabilities, enhanced by blockchain, decentralized storage, and standardization efforts, provides a solid technological foundation---but success ultimately depends on addressing the organizational, economic, and governance challenges that extend beyond purely technical concerns.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+
+\bibitem{monteiro2024digital}
+Monteiro, J., Silva, F., Pereira, C., et al.
+\textit{A Digital Twin-Based Digital Product Passport: A Case Study in the Agri-Food Sector}.
+Procedia Computer Science (KES 2024), 2024.
+
+\bibitem{dadamo2025integrated}
+D'Adamo, I., Gastaldi, M., Morone, P., Rosa, P., Sassanelli, C.
+\textit{An Integrated Business Strategy for the Twin Transition: Leveraging Digital Product Passports for Sustainability in the Textile Industry}.
+Business Strategy and the Environment, 2025.
+
+\bibitem{gleich2024asset}
+Gleich, B., Schuett, M., Wagner, C.
+\textit{An Asset Administration Shell-Based Digital Product Passport as a Gaia-X Service}.
+Procedia CIRP, 2024.
+
+\bibitem{lopes2024digital}
+Lopes, I., Barata, J.
+\textit{Digital Product Passport: A Review and Research Agenda}.
+Procedia Computer Science (KES 2024), 2024.
+
+\bibitem{kannappan2025enhancing}
+Kannappan, A., Kumar, R., Singh, M.
+\textit{Enhancing Digital Product Passport Through Decentralized Digital Twins: A Blockchain-Enabled Approach for Sustainable Product Lifecycle Management}.
+IEEE NTMS Conference, 2025.
+
+\end{thebibliography}
+
+\end{document}
